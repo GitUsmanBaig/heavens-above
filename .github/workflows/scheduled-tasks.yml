@@ -13,3 +13,9 @@ jobs:
 
     - name: Run backup script
       run: ./scripts/backup.sh
+    
+    - name: Notify Maintainece
+      run: ./scripts/maintenance.sh
+    
+    - name: Notify
+      run: ./scripts/notify.sh
