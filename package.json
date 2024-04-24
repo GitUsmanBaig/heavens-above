@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node run.js",
     "lint": "eslint .",
-    "build" : "node run.js"
+    "build": "echo 'No build process required; ready to execute'"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
