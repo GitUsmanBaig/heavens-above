@@ -1,0 +1,15 @@
+name: Scheduled Maintenance
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # Runs at 2 AM every day
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run backup script
+      run: ./scripts/backup.sh
