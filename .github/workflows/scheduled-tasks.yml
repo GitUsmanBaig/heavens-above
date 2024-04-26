@@ -2,8 +2,8 @@ name: Scheduled Maintenance
 
 on:
   schedule:
-    #runs 5 pm every day
-    -cron: '0 17 * * *'
+    #runs 10:20 pm everyday
+    - cron: '20 22 * * *'
     # - cron: '0 2 * * *' # Runs at 2 AM every day
 
 jobs:
