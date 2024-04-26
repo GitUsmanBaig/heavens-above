@@ -30,7 +30,7 @@ jobs:
 
     - name: Static Code Analysis
       # run: npm run analyze
-      echo: "Running static code analysis"
+      run : echo "Running static code analysis"
 
     - name: Analyze code quality metrics
       # run: npm run analyze
