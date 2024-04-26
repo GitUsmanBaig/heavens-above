@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Backing up data"
+echo "Backing up data..."
