@@ -11,21 +11,33 @@ jobs:
     environment: production
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          ref: 'gh-pages'  # Fetch the gh-pages branch
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Fetch changes
+        run: git fetch --no-tags --prune --depth=1 origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages
 
-    - name: Install dependencies
-      run: npm install
+      - name: Reset branch
+        run: git reset --hard origin/gh-pages
 
-    # - name: Build
-    #   run: npm run build
+      - uses: actions/checkout@v2
+        with:
+          ref: 'main'  # Switch back to main branch
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      # - name: Build
+      #   run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
